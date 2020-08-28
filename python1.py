@@ -23,41 +23,62 @@ Diccionarios:
 """
 
 # Operaciones con números
+# 2 tipos de datos con números:
+# int (enteros), float (con coma)
 print("\nOperaciones con números")
-print(2 + 3) # 5 int
-print(2 - 3) # -1 int
-print(2 / 3) # 0.66666666 float
-print(7 // 3) # 2 int
-print(7 % 2) # 1 int
-print(2 * 3) # 6 int
-print(2 ** 3) # 8 int
+print(2 + 3) # suma 5 int
+print(2 + 3 + 0.2) # suma 5.2 float
+print(2 - 3) # resta -1 int
+print(2 - 3.2) # resta -1.2 float
+print(2 / 3) # división 0.66666666 float (la división siempre devuelve float como resultado)
+print(2 / 2) # división 1.0 float (la división siempre devuelve float como resultado)
+print(7 / 3) # 2.33333333 float (la división siempre devuelve float como resultado)
+print(7 // 3) # división sin resto 2 int
+print(7.8 // 3) # división sin resto 2.0 float
+print(7 % 2) # modulo 1 int el resto de una división
+print(7.3 % 2) # modulo 1.3 float el resto de una división
+print(2 * 3) # multiplicación 6 int
+print(2 * 3.7) # multiplicación 7.4 float
+print(2 ** 3) # potencia 8 int
+print(2.2 ** 3) # potencia 10.648 float
+print(1.0) # float
+print(int(1.0)) # int (transforma float a int)
+print(int(2.9)) # int (transforma float a int)
 
 # Operaciones con texto
+# el texto tiene tipo string, se escribe str
 print("\nOperaciones con texto")
+print("Hola Pelol") # str
 print('Hola Pelol') # str
-print("Hola " + " " + "Pelol") # concatenar texto
+print("Hola " + 'Pelol') # concatenar texto
 print("Hola" + " " + "Pelol") # concatenar texto
 print("Hola"" ""Pelol") # concatenar texto
 
 # Variables que guardan valores
-hola = "Hola " # Ahora cada vez que escribimos hola, representa la cadena "Hola "
-pelol = "Pelol" 
+saludo = "Hola " # Ahora cada vez que escribimos saludo, representa la cadena de texto "Hola "
+pelol = "Pelol" # Ahora cada vez que escribimos pelol, representa la cadena de texto "Pelol"
 
-print(hola + pelol) # concatenar texto
+print("\nAhora usamos variables!") # concatenar texto
+print(saludo + pelol) # concatenar texto
 
-hola = "Chau " # ahora la variable hola contiene el texto "Chau "
+saludo = "Chau " # ahora la variable saludo contiene el texto "Chau "
 
-print(hola + pelol) # concatenar texto
+print(saludo + pelol) # concatenar texto
 
 print("Pelol estuvo aqui " * 5) # repetir texto
-print("Pelol estuvo aqui " + str(5) + " " + "veces")
+print("Pelol estuvo aqui " + str(5) + " " + "veces") # transformar el número 5 a texto (str)
 
 veinte = 20
 
 print(str(veinte) + str(veinte)) # 2020
 print("20" + str(veinte)) # 2020
-print("Las \"comillas dobles escapadas\" tambien sirven") # repetir texto
-print('Las "comillas simples" tambien sirven') # repetir texto
+
+# Caracteres de escape
+print("Las \"comillas dobles escapadas\" tambien sirven")
+print('Las \'comillas simples escapadas\' tambien sirven')
+
+print("Las 'comillas dobles' tambien sirven")
+print('Las "comillas simples" tambien sirven')
 
 print("""\
 
@@ -68,12 +89,12 @@ print("""\
 
 cuarenta_y_dos = 42
 
-print("Numero favorito: " + str(cuarenta_y_dos))
+print("Numero favorito: " + str(cuarenta_y_dos)) # convierte int a str
 print("Numero favorito: {}".format(cuarenta_y_dos))
 print(f"Numero favorito: {cuarenta_y_dos}")
 
-# Booleanos (operadores binarios) y variables
-print("\nBooleanos (operadores binarios) y variables")
+# Booleanos (operadores binarios lógicos)
+print("\nBooleanos (operadores binarios)")
 
 print(f"Verdadero: {True}") # verdadero
 print(f"Falso: {False}") # falso
@@ -89,6 +110,16 @@ print(f"Verdadero igual a verdadero: {True == True}") # verdadero
 print(f"Falso igual a verdadero: {False == True}") # falso
 print(f"Verdadero distinto de verdadero: {True != True}") # falso
 print(f"Falso distinto de verdadero: {False != True}") # verdadero
+
+print(f"Con números: {1 and 2}")
+print(f"Con números: {0 and 2}")
+print(f"Con números: {-1 or 2}")
+print(f"Con números: {0 or 123}")
+print(f"Con números: {3.2 or 2}")
+print(f"Con números: {1 == 2}")
+print(f"Con números: {2 == 2}")
+print(f"Con números: {-2 != 2}")
+print(f"Con números: {3.5 != 3.5}")
 
 # 67 esta entre 20 y 90
 print(f"Se cumple que 67 > 20 y 67 < 90 {67 > 20 and 67 < 90}") # excluye 20 y 90
@@ -133,7 +164,7 @@ print([1, "dos", True, [2, "otro texto", False, []], {}])
 
 # Las listas agrupan elementos en orden 0, 1, 2, 3,..., n - 1, siendo n la cantidad de elementos de la lista
 # Las listas siempre están ordenadas
-#        0, 1, 2, 3,        4
+# orden: 0, 1, 2, 3,        4
 lista = [1, 2, 3, "cuatro", False]
 
 print(f"\nLista inicial: {lista}")
@@ -142,10 +173,13 @@ print(f"Primer elemento de la lista {lista[0]}")
 print(f"Elemento en la 4ta posicion de la lista {lista[3]}")
 print(f"Elemento en la 5ta posicion de la lista {lista[4]}")
 
-lista.append("seis") # agregar un elemento
+lista.append("seis") # agregar un elemento al final de la lista
 print(f"\nLista actualizada: {lista}")
 print(f"Cantidad de elementos de la lista {len(lista)}")
 print(f"Elemento en la 6ta posicion de la lista de la lista {lista[5]}")
+
+print(f"Último elemento de la lista: {lista[-1]}")
+print(f"Primer elemento de la lista: {lista[-6]}")
 
 # los textos son parecidos a las listas en algunas caracteristicas
 print("\nCosas en comun entre textos y listas")
@@ -157,9 +191,18 @@ print(f"Longitud de la variable cuatro: {len(cuatro)}") # longitud del texto "cu
 print(f"Longitud de la variable cinco: {len(cinco)}") # longitud del texto "cinco", tiene 5 caracteres
 print(f"Que pasa al transformar cuatro en una lista: {list(cuatro)}") # podes transformar texto en una lista
 print(f"Que pasa al transformar cinco en una lista: {list(cinco)}") # podes transformar texto en una lista
+print(f"Que pasa al transformar 1234 en una lista: {list(str(1234))}") # podes transformar texto en una lista
 
-c = cuatro[0] # Podes sacar caracteres de un texto de la misma forma que elementos de una lista "c"
+c = cuatro[0] # Podes sacar caracteres de un texto de la misma forma que elementos de una lista, este es el caracter "c"
+o = cuatro[-1] # Podes sacar caracteres de un texto de la misma forma que elementos de una lista, este es el caracter "o"
 print(c)
+print(o)
+
+"""
+Matriz:
+1 2
+3 4
+"""
 
 # Listas adentro de listas
 #                 0: [0, 1], 1: [0, 1]
@@ -173,6 +216,7 @@ print(matriz_cuadrada[1][1]) # pide primero el 2do elemento de la primer lista (
 
 # Diccionarios
 # Sirven para guardar data sin necesidad de un orden específico
+# Termino: Definición
 print("\nDiccionario")
 
 diccionario = {
@@ -181,16 +225,19 @@ diccionario = {
   "sustantivo": "manzana",
   "verbo": "correr",
   "numero": 42,
-  "lenguajes de programacion": {
+  "lenguajes de programacion que estamos aprendiendo": {
     "python": "lenguaje python",
-  }
+  },
+  0: "cero"
 }
 
 adjetivo = diccionario["adjetivo"]
-subelemento = diccionario["lenguajes de programacion"]["python"]
+subelemento = diccionario["lenguajes de programacion que estamos aprendiendo"]["python"]
+cero = diccionario[0]
 
 print(f"Adjetivo: {adjetivo}")
 print(f"Subelemento: {subelemento}")
+print(f"Cero: {cero}")
 
 # Tipos de datos
 print("\nTipos de datos")
@@ -203,6 +250,7 @@ print(type({
 }))
 print(type(type)) # el tipo de la función type
 print(type(print)) # el tipo de la función print
+print(type(len)) # el tipo de la función len
 
 
 # Ejemplo: Usuarixs de Discord
@@ -216,8 +264,14 @@ usuarix1 = {
 
 usuarix2 = {
   "nombre": "Usuarix 2",
-  "roles": ["DJ"]
+  "roles": ["DJ"],
+  "edad": "XX"
+}
+
+usuarix3 = {
+  "nombre": "Usuarix 3",
+  "roles": []
 }
 
 # En nuestro servidor, podríamos tener nuestra lista de usuarixs:
-usuarixs = [usuarix1, usuarix2]
+usuarixs = [usuarix1, usuarix2, usuarix3]
